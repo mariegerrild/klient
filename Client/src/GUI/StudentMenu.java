@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JButton;
 
 
 public class StudentMenu extends JFrame {
@@ -46,6 +47,17 @@ public class StudentMenu extends JFrame {
 		JLabel lblKalenderMenu = new JLabel("Kalender menu");
 		lblKalenderMenu.setBounds(162, 40, 133, 20);
 		contentPane.add(lblKalenderMenu);
+		
+		JButton btnKalender = new JButton("Kalender");
+		btnKalender.setBounds(152, 70, 115, 29);
+		contentPane.add(btnKalender);
+		
+		JButton btnOpretEvent = new JButton("Opret event");
+		btnOpretEvent.setBounds(152, 115, 115, 29);
+		contentPane.add(btnOpretEvent);
+		
+		JButton btnLogUd = new JButton("Log ud");
+		btnLogUd.setBounds(152, 160, 115, 29);
+		contentPane.add(btnLogUd);
 	}
-
 }

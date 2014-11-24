@@ -18,6 +18,8 @@ public class CalendarProgram{
     static JScrollPane stblCalendar; //The scrollpane
     static JPanel pnlCalendar;
     static int realYear, realMonth, realDay, currentYear, currentMonth;
+    private static JButton btnOpretEvent;
+    private static JButton btnOpretNoteTil;
     
     public static void main (String args[]){
         //Look and feel
@@ -28,7 +30,7 @@ public class CalendarProgram{
         catch (UnsupportedLookAndFeelException e) {}
         
         //Prepare frame
-        frmMain = new JFrame ("Gestionnaire de clients"); //Create frame
+        frmMain = new JFrame ("CBS Calendar"); //Create frame
         frmMain.setSize(820, 568); //Set size to 400x400 pixels
         pane = frmMain.getContentPane();
         frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
@@ -36,7 +38,7 @@ public class CalendarProgram{
         //Create controls
         lblMonth = new JLabel ("January");
         lblMonth.setBounds(388, 38, 180, 25);
-        lblYear = new JLabel ("Change year:");
+        lblYear = new JLabel ("Change week:");
         lblYear.setBounds(437, 467, 160, 40);
         cmbYear = new JComboBox();
         cmbYear.setBounds(633, 467, 160, 40);
@@ -52,7 +54,7 @@ public class CalendarProgram{
         pnlCalendar.setBounds(0, 0, 808, 523);
         
         //Set border
-        pnlCalendar.setBorder(BorderFactory.createTitledBorder("CBSCalendar"));
+        pnlCalendar.setBorder(BorderFactory.createTitledBorder("Week view"));
         
         //Register action listeners
         btnPrev.addActionListener(new btnPrev_Action());
@@ -101,6 +103,22 @@ public class CalendarProgram{
         
         //Set row/column count
         tblCalendar.setRowHeight(38);
+        
+        btnOpretEvent = new JButton("Opret event");
+        btnOpretEvent.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        btnOpretEvent.setBounds(25, 462, 131, 45);
+        pnlCalendar.add(btnOpretEvent);
+        
+        btnOpretNoteTil = new JButton("Opret note til event");
+        btnOpretNoteTil.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
+        });
+        btnOpretNoteTil.setBounds(177, 464, 169, 40);
+        pnlCalendar.add(btnOpretNoteTil);
         mtblCalendar.setColumnCount(7);
         mtblCalendar.setRowCount(6);
         
