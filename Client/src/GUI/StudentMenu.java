@@ -29,7 +29,7 @@ public class StudentMenu extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the fra.
 	 */
 	public StudentMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
