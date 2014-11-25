@@ -40,7 +40,7 @@ public class StudentMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblVelkommenMarie = new JLabel("Velkommen Marie");
+		JLabel lblVelkommenMarie = new JLabel("Velkommen ******");
 		lblVelkommenMarie.setBounds(152, 16, 172, 20);
 		contentPane.add(lblVelkommenMarie);
 		

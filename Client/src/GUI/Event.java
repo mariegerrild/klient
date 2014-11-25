@@ -43,18 +43,33 @@ public class Event extends JFrame {
 		setContentPane(contentPane);
 		
 		JList list = new JList();
+		
+		JLabel lblOpretEvent = new JLabel("Opret event");
+		
+		JLabel lblVlgDato = new JLabel("V\u00E6lg dato");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(180)
-					.addComponent(list, GroupLayout.PREFERRED_SIZE, 1, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(135, Short.MAX_VALUE))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(180)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblOpretEvent)
+								.addComponent(list, GroupLayout.PREFERRED_SIZE, 1, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(25)
+							.addComponent(lblVlgDato)))
+					.addContainerGap(155, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(90)
+					.addContainerGap()
+					.addComponent(lblOpretEvent)
+					.addGap(26)
+					.addComponent(lblVlgDato)
+					.addGap(8)
 					.addComponent(list, GroupLayout.PREFERRED_SIZE, 1, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(143, Short.MAX_VALUE))
 		);
