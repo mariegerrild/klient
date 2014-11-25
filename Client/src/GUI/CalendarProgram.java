@@ -8,7 +8,7 @@ import java.awt.event.*;
 import java.util.*;
 
 public class CalendarProgram{
-    static JLabel lblMonth, lblYear;
+    static JLabel lblWeek;
     static JButton btnPrev, btnNext;
     static JTable tblCalendar;
     static JComboBox cmbYear;
@@ -17,7 +17,7 @@ public class CalendarProgram{
     static DefaultTableModel mtblCalendar; //Table model
     static JScrollPane stblCalendar; //The scrollpane
     static JPanel pnlCalendar;
-    static int realYear, realMonth, realDay, currentYear, currentMonth;
+    static int realYear, realWeek, realDay, currentYear, currentWeek;
     private static JButton btnOpretEvent;
     private static JButton btnOpretNoteTil;
     
@@ -36,12 +36,10 @@ public class CalendarProgram{
         frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
         
         //Create controls
-        lblMonth = new JLabel ("January");
-        lblMonth.setBounds(388, 38, 180, 25);
-        lblYear = new JLabel ("Change week:");
-        lblYear.setBounds(437, 467, 160, 40);
+        lblWeek = new JLabel ("Uge 1");
+        lblWeek.setBounds(388, 38, 180, 25);
         cmbYear = new JComboBox();
-        cmbYear.setBounds(633, 467, 160, 40);
+        cmbYear.setBounds(628, 469, 160, 30);
         btnPrev = new JButton ("Tilbage");
         btnPrev.setBounds(177, 25, 100, 50);
         btnNext = new JButton ("Næste");
@@ -65,8 +63,23 @@ public class CalendarProgram{
         //Add controls to pane
         pane.add(pnlCalendar);
         pnlCalendar.setLayout(null);
-        pnlCalendar.add(lblMonth);
-        pnlCalendar.add(lblYear);
+        pnlCalendar.add(lblWeek);
+        
+        btnOpretEvent = new JButton("Opret event");
+        btnOpretEvent.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        
+        btnOpretNoteTil = new JButton("Opret note til event");
+        btnOpretNoteTil.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
+        });
+        btnOpretNoteTil.setBounds(177, 462, 169, 45);
+        pnlCalendar.add(btnOpretNoteTil);
+        btnOpretEvent.setBounds(25, 462, 131, 45);
+        pnlCalendar.add(btnOpretEvent);
         pnlCalendar.add(cmbYear);
         pnlCalendar.add(btnPrev);
         pnlCalendar.add(btnNext);
@@ -76,16 +89,16 @@ public class CalendarProgram{
         frmMain.setResizable(false);
         frmMain.setVisible(true);
         
-        //Get real month/year
+        //Get real weel/year
         GregorianCalendar cal = new GregorianCalendar(); //Create calendar
-        realDay = cal.get(GregorianCalendar.DAY_OF_MONTH); //Get day
-        realMonth = cal.get(GregorianCalendar.MONTH); //Get month
+        realDay = cal.get(GregorianCalendar.DAY_OF_WEEK); //Get day
+        realWeek = cal.get(GregorianCalendar.WEEK_OF_YEAR); //Get month
         realYear = cal.get(GregorianCalendar.YEAR); //Get year
-        currentMonth = realMonth; //Match month and year
+        currentWeek = realWeek; //Match month and year
         currentYear = realYear;
         
         //Add headers
-        String[] headers = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"}; //All headers
+        String[] headers = {"Man", "Tirs", "Ons", "Tors", "Fre", "Lør", "Søn"}; //All headers
         for (int i=0; i<7; i++){
             mtblCalendar.addColumn(headers[i]);
         }
@@ -103,46 +116,30 @@ public class CalendarProgram{
         
         //Set row/column count
         tblCalendar.setRowHeight(38);
-        
-        btnOpretEvent = new JButton("Opret event");
-        btnOpretEvent.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
-        btnOpretEvent.setBounds(25, 462, 131, 45);
-        pnlCalendar.add(btnOpretEvent);
-        
-        btnOpretNoteTil = new JButton("Opret note til event");
-        btnOpretNoteTil.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
-        btnOpretNoteTil.setBounds(177, 464, 169, 40);
-        pnlCalendar.add(btnOpretNoteTil);
         mtblCalendar.setColumnCount(7);
         mtblCalendar.setRowCount(6);
         
         //Populate table
-        for (int i=realYear-100; i<=realYear+100; i++){
+        for (int i=realYear; i<=realYear+100; i++){
             cmbYear.addItem(String.valueOf(i));
         }
         
         //Refresh calendar
-        refreshCalendar (realMonth, realYear); //Refresh calendar
+        refreshCalendar (realWeek, realYear); //Refresh calendar
     }
     
-    public static void refreshCalendar(int month, int year){
+    public static void refreshCalendar(int week, int year){
     	
     	//Variables
-        String[] months =  {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        String[] weeks =  {"Uge 1", "Uge 2", "Uge 3", "Uge 4", "Uge 5", "Uge 6", "Uge 7", "Uge 8", "Uge 9", "Uge 10", "Uge 11", "Uge 12", "Uge13", "Uge 14", "Uge 15", "Uge 16", "Uge 17", "Uge 18", "Uge 19", "Uge 20", "Uge 21", "Uge 22", "Uge 23", "Uge 24", "Uge 25", "Uge 26", "Uge 27", "Uge 28", "Uge 29", "Uge 30", "Uge 31", "Uge 32", "Uge 33", "Uge 34", "Uge 35", "Uge 36", "Uge 37", "Uge 38", "Uge 39", "Uge 40", "Uge 41", "Uge 52", "Uge 43", "Uge 44", "Uge 45", "Uge 46", "Uge 47", "Uge 48", "Uge 49", "Uge 50", "Uge 51", "Uge 52"};
         int nod, som; //Number Of Days, Start Of Month
         
         //Allow/disallow buttons
         btnPrev.setEnabled(true);
         btnNext.setEnabled(true);
-        if (month == 0 && year <= realYear-10){btnPrev.setEnabled(false);} //Too early
-        if (month == 11 && year >= realYear+100){btnNext.setEnabled(false);} //Too late
-        lblMonth.setText(months[month]);
+        if (week == 0 && year <= realYear-10){btnPrev.setEnabled(false);} //Too early
+        if (week == 51 && year >= realYear+100){btnNext.setEnabled(false);} //Too late
+        lblWeek.setText(weeks[week]);
         cmbYear.setSelectedItem(String.valueOf(year)); //Select the correct year in the combo box
         
         //Clear table
@@ -153,8 +150,8 @@ public class CalendarProgram{
         }
         
         //Get first day of month and number of days
-        GregorianCalendar cal = new GregorianCalendar(year, month, 1);
-        nod = cal.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
+        GregorianCalendar cal = new GregorianCalendar(year, week, 1);
+        nod = cal.getActualMaximum(GregorianCalendar.WEEK_OF_YEAR);
         som = cal.get(GregorianCalendar.DAY_OF_WEEK);
         
         //Draw calendar
@@ -178,7 +175,7 @@ public class CalendarProgram{
                 setBackground(new Color(255, 255, 255));
             }
             if (value != null){
-                if (Integer.parseInt(value.toString()) == realDay && currentMonth == realMonth && currentYear == realYear){ //Today
+                if (Integer.parseInt(value.toString()) == realDay && currentWeek == realWeek && currentYear == realYear){ //Today
                     setBackground(new Color(220, 220, 255));
                 }
             }
@@ -190,26 +187,26 @@ public class CalendarProgram{
     
     static class btnPrev_Action implements ActionListener{
         public void actionPerformed (ActionEvent e){
-            if (currentMonth == 0){ //Back one year
-                currentMonth = 11;
+            if (currentWeek == 0){ //Back one year
+                currentWeek = 51;
                 currentYear -= 1;
             }
-            else{ //Back one month
-            	currentMonth -= 1;
+            else{ //Back one Week
+            	currentWeek -= 1;
             }
-            refreshCalendar(currentMonth, currentYear);
+            refreshCalendar(currentWeek, currentYear);
         }
     }
     static class btnNext_Action implements ActionListener{
         public void actionPerformed (ActionEvent e){
-            if (currentMonth == 11){ //Foward one year
-                currentMonth = 0;
+            if (currentWeek == 51){ //Foward one year
+                currentWeek = 0;
                 currentYear += 1;
             }
             else{ //Foward one month
-                currentMonth += 1;
+                currentWeek += 1;
             }
-            refreshCalendar(currentMonth, currentYear);
+            refreshCalendar(currentWeek, currentYear);
         }
     }
     static class cmbYear_Action implements ActionListener{
@@ -217,7 +214,7 @@ public class CalendarProgram{
             if (cmbYear.getSelectedItem() != null){
                 String b = cmbYear.getSelectedItem().toString();
                 currentYear = Integer.parseInt(b);
-                refreshCalendar(currentMonth, currentYear);
+                refreshCalendar(currentWeek, currentYear);
             }
         }
     }
