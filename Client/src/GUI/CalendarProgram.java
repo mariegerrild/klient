@@ -18,8 +18,6 @@ public class CalendarProgram{
     static JScrollPane stblCalendar; //The scrollpane
     static JPanel pnlCalendar;
     static int realYear, realWeek, realDay, currentYear, currentWeek;
-    private static JButton btnOpretEvent;
-    private static JButton btnOpretNoteTil;
     private static JButton btnDato;
     private static JButton button;
     private static JButton btnSeDato;
@@ -38,7 +36,7 @@ public class CalendarProgram{
         
         //Prepare frame
         frmMain = new JFrame ("CBS Calendar"); //Create frame
-        frmMain.setSize(821, 342); //Set size to 400x400 pixels
+        frmMain.setSize(825, 291); //Set size to 400x400 pixels
         pane = frmMain.getContentPane();
         frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
         
@@ -46,7 +44,7 @@ public class CalendarProgram{
         lblWeek = new JLabel ("Uge 1");
         lblWeek.setBounds(388, 38, 180, 25);
         cmbYear = new JComboBox();
-        cmbYear.setBounds(625, 248, 160, 30);
+        cmbYear.setBounds(628, 180, 160, 45);
         btnPrev = new JButton ("Tilbage");
         btnPrev.setBounds(177, 25, 100, 50);
         btnNext = new JButton ("Næste");
@@ -56,7 +54,7 @@ public class CalendarProgram{
         stblCalendar = new JScrollPane(tblCalendar);
         stblCalendar.setBounds(15, 79, 773, 36);
         pnlCalendar = new JPanel(null);
-        pnlCalendar.setBounds(0, 0, 808, 523);
+        pnlCalendar.setBounds(0, 0, 815, 246);
         
         //Set border
         pnlCalendar.setBorder(BorderFactory.createTitledBorder("Week view"));
@@ -72,22 +70,7 @@ public class CalendarProgram{
         pnlCalendar.setLayout(null);
         pnlCalendar.add(lblWeek);
         
-        btnOpretEvent = new JButton("Opret event");
-        btnOpretEvent.setBounds(15, 241, 131, 45);
-        btnOpretEvent.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
-        
-        btnOpretNoteTil = new JButton("Opret note til event");
-        btnOpretNoteTil.setBounds(179, 241, 169, 45);
-        btnOpretNoteTil.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
-        pnlCalendar.add(btnOpretNoteTil);
-        
-        btnSeDato = new JButton("Se dato1");
+        btnSeDato = new JButton("dato3");
         btnSeDato.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
@@ -95,30 +78,29 @@ public class CalendarProgram{
         btnSeDato.setBounds(234, 119, 112, 45);
         pnlCalendar.add(btnSeDato);
         
-        btnDato = new JButton("Dato");
+        btnDato = new JButton("Dato1");
         btnDato.setBounds(15, 119, 112, 45);
         pnlCalendar.add(btnDato);
         
-        btnSeDato_1 = new JButton("se dato2");
+        btnSeDato_1 = new JButton("dato4");
         btnSeDato_1.setBounds(343, 119, 112, 45);
         pnlCalendar.add(btnSeDato_1);
         
-        btnSeDato_4 = new JButton("se dato5");
+        btnSeDato_4 = new JButton("dato7");
         btnSeDato_4.setBounds(673, 119, 115, 45);
         pnlCalendar.add(btnSeDato_4);
         
-        button = new JButton("New button");
+        button = new JButton("dato2");
         button.setBounds(124, 119, 112, 45);
         pnlCalendar.add(button);
         
-        btnSeDato_3 = new JButton("se dato4");
+        btnSeDato_3 = new JButton("dato6");
         btnSeDato_3.setBounds(564, 119, 115, 45);
         pnlCalendar.add(btnSeDato_3);
         
-        btnSeDato_2 = new JButton("se dato3");
+        btnSeDato_2 = new JButton("dato5");
         btnSeDato_2.setBounds(452, 119, 115, 45);
         pnlCalendar.add(btnSeDato_2);
-        pnlCalendar.add(btnOpretEvent);
         pnlCalendar.add(cmbYear);
         pnlCalendar.add(btnPrev);
         pnlCalendar.add(btnNext);
@@ -203,7 +185,7 @@ public class CalendarProgram{
         public Component getTableCellRendererComponent (JTable table, Object value, boolean selected, boolean focused, int row, int column){
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);
             if (column == 0 || column == 6){ //Week-end
-                setBackground(new Color(255, 220, 220));
+                setBackground(new Color(200, 220, 220));
             }
             else{ //Week
                 setBackground(new Color(255, 255, 255));

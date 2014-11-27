@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/gson-2.3.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/bcprov-jdk15on-1.51.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-codec-1.7.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-lang3-3.3.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/cos.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/esapi-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/fileupload.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/forecastio-lib-java.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/ibatis-2.3.0.677.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/jcl-over-slf4j-1.7.5.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/joda-time-2.2.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/jul-to-slf4j-1.7.5.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/log4j-over-slf4j-1.7.5.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/mysql-connector-java-5.1.33-bin.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/not-yet-commons-ssl-0.3.9.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/opensaml-2.6.3.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/openws-1.5.3.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/struts.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/uploadbean.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/velocity-1.7.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/xmlsec-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/DS server version 2/libs/xmltooling-1.4.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

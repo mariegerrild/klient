@@ -1,76 +1,115 @@
 package GUI;
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.CardLayout;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import controller.ActionEventHandler;
+
+import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
+
+import Logic.ServerManager;
+import constants.ActionConstants;
 
 public class Login extends JFrame {
+	
+	private ActionEventHandler actionEventHandler;
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	public Login(ActionEventHandler actionEventHandler) {
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+		this.actionEventHandler = actionEventHandler; }
+		
+		
+		private JPanel contentPane;
+		private JTextField textField;
+		private JTextField textField_1;
+		private JLabel labelResult;
+		private JLabel lblAdgangskode;
+
+		/**
+		 * Launch the application.
+		 */
+		public static void main(String[] args) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						Login frame = new Login();
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-			}
-		});
-	}
+			});
+		}
 
-	/**
-	 * Create the frame.
-	 */
-	public Login() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(new CardLayout(0, 0));
+		/**
+		 * Create the frame.
+		 */
+		public Login() {
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setBounds(100, 100, 450, 300);
+			contentPane = new JPanel();
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			setContentPane(contentPane);
+			contentPane.setLayout(null);
+			
+			JLabel lblNewLabel = new JLabel("Velkommen til CBS");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel.setBounds(6, 10, 438, 39);
+			contentPane.add(lblNewLabel);
+			
+			textField = new JTextField();
+			textField.setToolTipText("Email");
+			textField.setBounds(149, 82, 134, 28);
+			contentPane.add(textField);
+			textField.setColumns(10);
+			
+			textField_1 = new JTextField();
+			textField_1.setToolTipText("Password");
+			textField_1.setBounds(149, 137, 134, 28);
+			contentPane.add(textField_1);
+			textField_1.setColumns(10);
+			
+			JButton btnNewButton = new JButton("OK");
+			btnNewButton.setBounds(159, 187, 117, 29);
+			contentPane.add(btnNewButton);
+			
+			labelResult = new JLabel();
+			labelResult.setBounds(149, 210, 134, 28);
+			contentPane.add(labelResult);
+			
+			JLabel lblEmail = new JLabel("e-mail");
+			lblEmail.setBounds(76, 86, 69, 20);
+			contentPane.add(lblEmail);
+			
+			lblAdgangskode = new JLabel("Adgangskode");
+			lblAdgangskode.setBounds(31, 141, 103, 20);
+			contentPane.add(lblAdgangskode);
+			
+			btnNewButton.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		        	 String inputUsername = textField.getText();
+		        	 String inputPassword = textField_1.getText();
+		        	 try {
+						String loginResult = ServerManager.Login(inputUsername, inputPassword);
+						labelResult.setText(loginResult);
+						
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+						labelResult.setText(e1.getMessage());
+					} 
+		        	 
+		         }          
+		      });
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, "name_341328425981904");
-		panel.setLayout(null);
-		
-		textField = new JTextField();
-		textField.setBounds(152, 79, 146, 26);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(152, 121, 146, 26);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblVelkommenTilCbs = new JLabel("Velkommen til CBS");
-		lblVelkommenTilCbs.setBounds(152, 16, 141, 20);
-		panel.add(lblVelkommenTilCbs);
-		
-		JLabel lblIndtastDineOplysninger = new JLabel("Indtast dine oplysninger");
-		lblIndtastDineOplysninger.setBounds(145, 43, 215, 20);
-		panel.add(lblIndtastDineOplysninger);
-		
-		JLabel lblEmail = new JLabel("E-mail");
-		lblEmail.setBounds(68, 82, 69, 20);
-		panel.add(lblEmail);
-		
-		JLabel lblAdgangskode = new JLabel("Adgangskode");
-		lblAdgangskode.setBounds(46, 124, 111, 20);
-		panel.add(lblAdgangskode);
 	}
 }
+		
+
