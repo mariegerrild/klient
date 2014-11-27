@@ -25,6 +25,7 @@ public class CalendarProgram{
     private static JButton btnSeDato_2;
     private static JButton btnSeDato_3;
     private static JButton btnSeDato_4;
+    private static JButton btnVejrudsigt;
     
     public static void main (String args[]){
         //Look and feel
@@ -93,6 +94,18 @@ public class CalendarProgram{
         button = new JButton("dato2");
         button.setBounds(124, 119, 112, 45);
         pnlCalendar.add(button);
+        
+        JButton btnNewButton = new JButton("Log ud");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
+        });
+        btnNewButton.setBounds(36, 194, 115, 36);
+        pnlCalendar.add(btnNewButton);
+        
+        btnVejrudsigt = new JButton("Vejrudsigt");
+        btnVejrudsigt.setBounds(180, 194, 115, 36);
+        pnlCalendar.add(btnVejrudsigt);
         
         btnSeDato_3 = new JButton("dato6");
         btnSeDato_3.setBounds(564, 119, 115, 45);
