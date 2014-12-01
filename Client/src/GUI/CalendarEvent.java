@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CalendarEvent extends JFrame {
+public class CalendarEvent extends JPanel {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -21,40 +21,8 @@ public class CalendarEvent extends JFrame {
 	private JTextField textField_3;
 	private JButton btnNewButton;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CalendarEvent frame = new CalendarEvent();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public void CalenderEvent () {
 
-	/**
-	 * Create the frame.
-	 */
-	public CalendarEvent() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 852, 579);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel lblDagensBegivenheder = new JLabel("Dagens begivenheder");
-		lblDagensBegivenheder.setBounds(15, 37, 163, 20);
-		contentPane.add(lblDagensBegivenheder);
-		
-		JLabel lblOpretBegivenhed = new JLabel("Opret begivenhed");
-		lblOpretBegivenhed.setBounds(596, 37, 205, 20);
-		contentPane.add(lblOpretBegivenhed);
 		
 		textField = new JTextField();
 		textField.setBounds(526, 73, 275, 35);

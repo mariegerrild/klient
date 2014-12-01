@@ -1,35 +1,50 @@
 package Logic;
 
 import java.io.BufferedReader;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import Logic.AuthUser;
+
+import org.joda.time.DateTime;
+
+
+import model.Login;
+import model.Appointment;
+import model.User;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class ServerManager {
 
-	public static String Login(String username, String password) throws Exception{
-		
+	
+	public static User Login(String username, String password) throws Exception{
 		Gson gson = new GsonBuilder().create();
-		AuthUser authUser = new AuthUser();
+		Login login = new Login();
+		User user;
 		
 		// Krypter password før det sendes over netværk.
 		String encryptedPassword = encryptionAES.encrypt(password);	
 		
-		authUser.setAuthUserPassword(encryptedPassword);
-		authUser.setAuthUserEmail(username);
+		login.setAuthUserPassword(encryptedPassword);
+		login.setAuthUserEmail(username);
 
-		String gsonString = gson.toJson(authUser);
+		String gsonString = gson.toJson(login);
 		String result = GetJsonFromServer(gsonString);
-		return result;
+
+		user = (User)gson.fromJson(result, User.class);
+		if(user.isError())
+		{
+			throw new Exception(user.getErrorMessage());		
+		}
+
+		return user;
 	}
 	
-	
-	
+
 	private static String GetJsonFromServer(String jsonInput){
 	
 		String result = "Error";
@@ -60,5 +75,18 @@ public class ServerManager {
 		}
 	
 		return result;
+	}
+
+	public static Appointment[] getAppointments(DateTime date) {
+		Gson gson = new GsonBuilder().create();
+		
+		Appointment[] appointments;
+		
+		String gsonString = gson.toJson(date);
+		String result = GetJsonFromServer(gsonString);
+		
+		appointments = new Appointment[1];
+		
+		return appointments;
 	}	
 }
