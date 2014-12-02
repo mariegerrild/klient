@@ -46,6 +46,7 @@ public class ActionEventHandler implements ActionListener {
 			try {
 				screen.setCurrentUser(ServerManager.Login(username, password));
 				screen.show(ViewConstants.CalendarProgram);
+				screen.getCalendarProgram().setUserWelcome(username);
 			} catch (Exception e1) {
 				screen.getLoginView().setStatus(e1.getMessage());
 			}		

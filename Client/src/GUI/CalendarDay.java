@@ -55,7 +55,7 @@ public class CalendarDay extends JPanel{
 		lblAppointments = new JLabel("Dagens begivenheder");
 		lblAppointments.setBounds(0, 10, 753, 44);
 		lblAppointments.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAppointments.setForeground(Color.grey);
+		lblAppointments.setForeground(Color.black);
 		lblAppointments.setFont(boldFont);
 		add(lblAppointments);
 		

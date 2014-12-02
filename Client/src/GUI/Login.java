@@ -66,11 +66,11 @@ public class Login extends JPanel {
 			add(labelResult);
 			
 			JLabel lblEmail = new JLabel("e-mail");
-			lblEmail.setBounds(234, 90, 69, 20);
+			lblEmail.setBounds(248, 82, 69, 20);
 			add(lblEmail);
 			
 			lblAdgangskode = new JLabel("Adgangskode");
-			lblAdgangskode.setBounds(178, 141, 103, 20);
+			lblAdgangskode.setBounds(200, 146, 103, 20);
 			add(lblAdgangskode);
 			
 			

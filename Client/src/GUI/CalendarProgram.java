@@ -17,16 +17,16 @@ import javax.swing.JLabel;
 public class CalendarProgram  extends JPanel{
 
 	private ActionEventHandler actionEventHandler;
-	public JLabel lblNewLabel;
+	public JLabel userWelcome;
 
 	public CalendarProgram(ActionEventHandler actionEventHandler) {
 
 		this.actionEventHandler = actionEventHandler;
 		setLayout(null);
 		
-		lblNewLabel = new JLabel("Du er nu logget ind som");
-		lblNewLabel.setBounds(329, 16, 73, 20);
-		add(lblNewLabel);
+		userWelcome = new JLabel("");
+		userWelcome.setBounds(261, 21, 313, 20);
+		add(userWelcome);
 		
 		JButton btnDayOverview = new JButton("Dagsoversigt");
 		btnDayOverview.setBounds(589, 12, 123, 29);
@@ -52,5 +52,8 @@ public class CalendarProgram  extends JPanel{
 	
 	public DateTime getSelectedDate() {
 		return DateTime.now();
+	}
+	public void setUserWelcome(String username) {
+		userWelcome.setText("Du er logget ind som " + username);
 	}
 }
