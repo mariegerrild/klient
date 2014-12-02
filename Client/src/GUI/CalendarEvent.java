@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CalendarEvent extends JPanel {
+	public CalendarEvent() {
+	}
 
 	private JPanel contentPane;
 	private JTextField textField;

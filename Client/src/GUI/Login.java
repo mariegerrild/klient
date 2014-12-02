@@ -33,36 +33,36 @@ public class Login extends JPanel {
 
 	public Login(ActionEventHandler actionEventHandler) {
 
-		this.actionEventHandler = actionEventHandler; 
-		setLayout(null);
+		this.actionEventHandler = actionEventHandler;
+			setLayout(null);
 
 
 			
-			JLabel lblNewLabel = new JLabel("Velkommen til CBS");
-			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			JLabel lblNewLabel = new JLabel("Velkommen til CBS calendar");
 			lblNewLabel.setBounds(164, 27, 438, 39);
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			add(lblNewLabel);
 			
 			textField = new JTextField();
+			textField.setBounds(318, 82, 134, 39);
 			textField.setToolTipText("Email");
-			textField.setBounds(318, 82, 134, 28);
 			add(textField);
 			textField.setColumns(10);
 			
 			textField_1 = new JTextField();
+			textField_1.setBounds(318, 137, 134, 39);
 			textField_1.setToolTipText("Password");
-			textField_1.setBounds(318, 137, 134, 28);
 			add(textField_1);
 			textField_1.setColumns(10);
 			
 			btnNewButton = new JButton("OK");
-			btnNewButton.setBounds(329, 210, 117, 29);
+			btnNewButton.setBounds(329, 210, 117, 39);
 			btnNewButton.addActionListener( this.actionEventHandler);
 			btnNewButton.setActionCommand(ActionConstants.Login);
 			add(btnNewButton);
 			
 			labelResult = new JLabel();
-			labelResult.setBounds(149, 210, 134, 28);
+			labelResult.setBounds(318, 265, 134, 28);
 			add(labelResult);
 			
 			JLabel lblEmail = new JLabel("e-mail");

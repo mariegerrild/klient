@@ -48,9 +48,10 @@ public class Screen extends JFrame {
 	{
 
 		//Add the properties to the windows
-		setTitle("Kalender");
+		setTitle("CBS calendar");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(WIDTH, HEIGHT);
+		setSize(728, 400);
+		setResizable(false);
 		
 		rootPanel = new JPanel();
 		rootPanel.setLayout(new CardLayout(0,0));

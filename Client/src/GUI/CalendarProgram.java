@@ -22,22 +22,26 @@ public class CalendarProgram  extends JPanel{
 	public CalendarProgram(ActionEventHandler actionEventHandler) {
 
 		this.actionEventHandler = actionEventHandler;
+		setLayout(null);
+		
+		lblNewLabel = new JLabel("Du er nu logget ind som");
+		lblNewLabel.setBounds(329, 16, 73, 20);
+		add(lblNewLabel);
+		
+		JButton btnDayOverview = new JButton("Dagsoversigt");
+		btnDayOverview.setBounds(589, 12, 123, 29);
+		btnDayOverview.addActionListener( this.actionEventHandler);
+		btnDayOverview.setActionCommand(ActionConstants.CalendarDay);
+		add(btnDayOverview);
 		
 		JButton btnLogout = new JButton("Logud");
+		btnLogout.setBounds(635, 316, 77, 29);
 		btnLogout.addActionListener(this.actionEventHandler);
-		
-		lblNewLabel = new JLabel("New Label");
-		add(lblNewLabel);
 		
 		
 		
 		btnLogout.setActionCommand(ActionConstants.Logout);
 		add(btnLogout);
-		
-		JButton btnDayOverview = new JButton("Dagsoversigt");
-		btnDayOverview.addActionListener( this.actionEventHandler);
-		btnDayOverview.setActionCommand(ActionConstants.CalendarDay);
-		add(btnDayOverview);
 		
 		
 		

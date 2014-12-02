@@ -31,20 +31,20 @@ public class CalendarDay extends JPanel{
 	private JButton btnDayOverview;
 	private JButton btnM;
 	
-	   Font italicFont = new Font("Helvetica Neue", Font.ITALIC | Font.PLAIN, 14);
-	   Font boldFont = new Font("Helvetica Neue", Font.BOLD | Font.PLAIN, 16);
-	   Font plainFont = new Font("Helvetica Neue", Font.PLAIN | Font.PLAIN, 14);
-
+	  
 	public CalendarDay(ActionEventHandler actionEventHandler) {
-		
-		setLayout(null);
 
 		this.actionEventHandler = actionEventHandler;
 		
+		Font italicFont = new Font("", Font.ITALIC | Font.PLAIN, 20);
+		   Font boldFont = new Font("", Font.BOLD | Font.PLAIN, 20);
+		   Font plainFont = new Font("", Font.PLAIN | Font.PLAIN, 20);
 		
-		btnDayOverview = new JButton("Kalendaroversigt");
-		btnDayOverview.setBounds(289, 11, 149, 29);
+		
+		btnDayOverview = new JButton("Kalenderoversigt");
+		btnDayOverview.setBounds(15, 19, 149, 29);
 		btnDayOverview.addActionListener( this.actionEventHandler);
+		setLayout(null);
 		btnDayOverview.setActionCommand(ActionConstants.CalendarProgram);
 		add(btnDayOverview);
 		
@@ -52,11 +52,11 @@ public class CalendarDay extends JPanel{
 		lbldate.setBounds(299, 19, 0, 0);
 		add(lbldate);
 		
-		lblAppointments = new JLabel("Dine aftaler for i dag");
+		lblAppointments = new JLabel("Dagens begivenheder");
+		lblAppointments.setBounds(0, 10, 753, 44);
 		lblAppointments.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAppointments.setForeground(Color.white);
+		lblAppointments.setForeground(Color.grey);
 		lblAppointments.setFont(boldFont);
-		lblAppointments.setBounds(0, 73, 728, 16);
 		add(lblAppointments);
 		
 
@@ -65,16 +65,12 @@ public class CalendarDay extends JPanel{
 		// Standard Swing components
 		
 		btnLogOut = new JButton("Log af");
-		btnLogOut.setBounds(605, 11, 117, 29);
+		btnLogOut.setBounds(596, 356, 117, 29);
 		btnLogOut.addActionListener(this.actionEventHandler);
 		btnLogOut.setActionCommand(ActionConstants.Logout);
 		add(btnLogOut);
 				
-		Background = new JLabel("");
-		Background.setIcon(new ImageIcon("res/img/MainMenubg.png"));
-		Background.setBounds(0, 0, 728, 400);
-		add(Background);
-				
+		
 		
 	}
 	
