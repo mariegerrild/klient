@@ -1,7 +1,10 @@
 package GUI;
 
 import java.awt.event.ActionListener;
-
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -18,6 +21,8 @@ public class CalendarProgram  extends JPanel{
 
 	private ActionEventHandler actionEventHandler;
 	public JLabel userWelcome;
+	
+		  
 
 	public CalendarProgram(ActionEventHandler actionEventHandler) {
 
@@ -25,7 +30,7 @@ public class CalendarProgram  extends JPanel{
 		setLayout(null);
 		
 		userWelcome = new JLabel("");
-		userWelcome.setBounds(261, 21, 313, 20);
+		userWelcome.setBounds(226, 21, 348, 20);
 		add(userWelcome);
 		
 		JButton btnDayOverview = new JButton("Dagsoversigt");
@@ -34,7 +39,7 @@ public class CalendarProgram  extends JPanel{
 		btnDayOverview.setActionCommand(ActionConstants.CalendarDay);
 		add(btnDayOverview);
 		
-		JButton btnLogout = new JButton("Logud");
+		JButton btnLogout = new JButton("Log af");
 		btnLogout.setBounds(635, 316, 77, 29);
 		btnLogout.addActionListener(this.actionEventHandler);
 		
@@ -42,8 +47,16 @@ public class CalendarProgram  extends JPanel{
 		
 		btnLogout.setActionCommand(ActionConstants.Logout);
 		add(btnLogout);
+
 		
-		
+		  DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		   //get current date time with Date()
+		   Date date = new Date();
+		   System.out.println(dateFormat.format(date));
+	 
+		   //get current date time with Calendar()
+		   Calendar cal = Calendar.getInstance();
+		   System.out.println(dateFormat.format(cal.getTime()));	
 		
 		
 	}

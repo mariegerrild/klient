@@ -2,6 +2,10 @@ package GUI;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -49,8 +53,15 @@ public class CalendarDay extends JPanel{
 		add(btnDayOverview);
 		
 		lbldate = new JLabel("");
-		lbldate.setBounds(299, 19, 0, 0);
+		lbldate.setBounds(25, 43, 561, 50);
 		add(lbldate);
+		 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		   //get current date time with Date()
+		   Date date = new Date();
+		   System.out.println(dateFormat.format(date));
+		   Calendar cal = Calendar.getInstance();
+		   lbldate.setText(dateFormat.format(date));
+		
 		
 		lblAppointments = new JLabel("Dagens begivenheder");
 		lblAppointments.setBounds(0, 10, 753, 44);
@@ -65,7 +76,7 @@ public class CalendarDay extends JPanel{
 		// Standard Swing components
 		
 		btnLogOut = new JButton("Log af");
-		btnLogOut.setBounds(596, 356, 117, 29);
+		btnLogOut.setBounds(596, 310, 117, 29);
 		btnLogOut.addActionListener(this.actionEventHandler);
 		btnLogOut.setActionCommand(ActionConstants.Logout);
 		add(btnLogOut);
@@ -79,7 +90,7 @@ public class CalendarDay extends JPanel{
 		
 		Appointment[] appointments = ServerManager.getAppointments(date);
 		
-		lbldate.setText("Dato: "+ selectedDate);
+		
 	}
 }
 

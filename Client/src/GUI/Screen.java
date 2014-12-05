@@ -1,8 +1,11 @@
 package GUI;
 import java.awt.CardLayout;
 import java.awt.Toolkit;
+import java.awt.event.FocusListener;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import constants.ViewConstants;
 import controller.ActionEventHandler;
 import controller.CalendarController;
@@ -40,6 +43,7 @@ public class Screen extends JFrame {
 	private JPanel rootPanel;
 
 	private ActionEventHandler actionEventHandler;
+	private FocusListener focusListener;
 	
 	/** The c. */
 	CardLayout c;
@@ -61,7 +65,7 @@ public class Screen extends JFrame {
 		
 		//Instanser af JPanels
 		calendarProgram = new CalendarProgram(actionEventHandler);
-		login = new Login(actionEventHandler);
+		login = new Login(actionEventHandler, focusListener);
 		calendarDay = new CalendarDay(actionEventHandler);
 		
 				
