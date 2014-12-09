@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.util.GregorianCalendar;
+import javax.swing.ImageIcon;
 
 import controller.ActionEventHandler;
 
@@ -16,12 +18,20 @@ import org.joda.time.DateTime;
 
 import constants.ActionConstants;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 public class CalendarProgram  extends JPanel{
 
 	private ActionEventHandler actionEventHandler;
 	public JLabel userWelcome;
-	
+
+	//public JLabel Background;
+	public JButton btnLogOut;
+	public JButton btnM;
+    static DefaultTableModel mtblCalendar; //Table model
+    static int realYear, realMonth, realDay, currentYear, currentMonth;
+    static JButton btnPrev, btnNext;
+    static JLabel lblMonth, lblYear;
 		  
 
 	public CalendarProgram(ActionEventHandler actionEventHandler) {
@@ -32,7 +42,6 @@ public class CalendarProgram  extends JPanel{
 		userWelcome = new JLabel("");
 		userWelcome.setBounds(226, 21, 348, 20);
 		add(userWelcome);
-		
 		JButton btnDayOverview = new JButton("Dagsoversigt");
 		btnDayOverview.setBounds(589, 12, 123, 29);
 		btnDayOverview.addActionListener( this.actionEventHandler);

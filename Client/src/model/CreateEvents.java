@@ -1,11 +1,14 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
-import org.joda.time.DateTime;
+import GUI.CalendarDay;
 
-public class Appointment {
-	private String overallID = "Appointment";
+public class CreateEvents {
+	private String overallID = "createCalendar";
 	private String title;
 	private String startDate;
 	private String endDate;
@@ -13,12 +16,8 @@ public class Appointment {
 	private String location;
 	private String email;
 
-	public String getOverallID() {
-		return overallID;
-	}
-	public void setOverallID(String overallID) {
-		this.overallID = overallID;
-	}
+
+	
 	public String getTitle() {
 		return title;
 	}
@@ -55,4 +54,7 @@ public class Appointment {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+	
 }

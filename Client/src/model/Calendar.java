@@ -1,24 +1,25 @@
 package model;
 
-import java.util.Date;
 
-import org.joda.time.DateTime;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class Appointment {
-	private String overallID = "Appointment";
+
+public class Calendar implements java.io.Serializable {
+
+	public Calendar() {
+		// TODO Auto-generated constructor stub
+	}
 	private String title;
-	private String startDate;
+	private String startDate; 
 	private String endDate;
 	private String note;
 	private String location;
+	private boolean activity;
 	private String email;
+	
 
-	public String getOverallID() {
-		return overallID;
-	}
-	public void setOverallID(String overallID) {
-		this.overallID = overallID;
-	}
 	public String getTitle() {
 		return title;
 	}
@@ -42,7 +43,7 @@ public class Appointment {
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
-	}
+	} 
 	public String getLocation() {
 		return location;
 	}
@@ -55,4 +56,11 @@ public class Appointment {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public void setActivity(boolean activity) {
+		this.activity = activity;
+	} 
+	public boolean getActivity() {
+		return activity;
+	}
+
 }

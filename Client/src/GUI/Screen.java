@@ -1,14 +1,19 @@
 package GUI;
+
 import java.awt.CardLayout;
 import java.awt.Toolkit;
-import java.awt.event.FocusListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import model.Appointment;
+import model.CreateEvents;
+import model.ShowCalendar;
 import constants.ViewConstants;
 import controller.ActionEventHandler;
 import controller.CalendarController;
+
+
 /**
  * The Class Screen.
  */
@@ -26,24 +31,32 @@ public class Screen extends JFrame {
 	/** The Constant HEIGHT. */
 	public static final int HEIGHT = 400;
 	
+	
+	
 	//Declare our JPanels
 	///** The action event handler. */
 	//private ActionEventHandler actionEventHandler;
 	
 	/** The login. */ // login
 	private Login login;
-	
-	private CalendarProgram calendarProgram;
+		
+	private CalendarProgram calendarOverview;
 	
 	private CalendarDay calendarDay;
 	
 	private model.User currentUser;
 	
+	private model.ShowCalendar email;
+		
+	/** get events. */
+	private Appointment calendarDate;
+	
+
+	
 	/** The root panel. */
 	private JPanel rootPanel;
 
 	private ActionEventHandler actionEventHandler;
-	private FocusListener focusListener;
 	
 	/** The c. */
 	CardLayout c;
@@ -52,9 +65,9 @@ public class Screen extends JFrame {
 	{
 
 		//Add the properties to the windows
-		setTitle("CBS calendar");
+		setTitle("Kalender");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(728, 400);
+		setSize(WIDTH, HEIGHT);
 		setResizable(false);
 		
 		rootPanel = new JPanel();
@@ -64,16 +77,14 @@ public class Screen extends JFrame {
 		this.actionEventHandler = new ActionEventHandler(calendarController, this);
 		
 		//Instanser af JPanels
-		calendarProgram = new CalendarProgram(actionEventHandler);
-		login = new Login(actionEventHandler, focusListener);
+		calendarOverview = new CalendarProgram(actionEventHandler);
+		login = new Login(actionEventHandler);
 		calendarDay = new CalendarDay(actionEventHandler);
-		
 				
 		//Add the panels to the rootPanel
-		rootPanel.add(calendarProgram, ViewConstants.CalendarProgram);
+		rootPanel.add(calendarOverview, ViewConstants.CalendarProgram);
 		rootPanel.add(login, ViewConstants.Login);
 		rootPanel.add(calendarDay, ViewConstants.CalendarDay);
-	
 		
 		setContentPane(rootPanel);
 		
@@ -107,9 +118,9 @@ public class Screen extends JFrame {
 	}
 	
 
-	public CalendarProgram getCalendarProgram() {
+	public CalendarProgram getCalendarOverview() {
 		
-		return calendarProgram;
+		return calendarOverview;
 	}
 
 	public CalendarDay getCalendarDay() {
@@ -124,4 +135,19 @@ public class Screen extends JFrame {
 	public void setCurrentUser(model.User currentUser) {
 		this.currentUser = currentUser;
 	}
+
+	public Appointment getDailyEvents () {
+		return calendarDate;
+	}
+
+	public void setDailyEvents(Appointment calendarDate) {
+		this.calendarDate = calendarDate;
+	}
+	public ShowCalendar getRequest () {
+		return email;
+	}
+	public void setRequest(ShowCalendar email) {
+		this.email = email;
+	}
+	
 }
