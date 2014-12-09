@@ -56,6 +56,46 @@ public class CalendarProgram  extends JPanel{
 		
 		btnLogout.setActionCommand(ActionConstants.Logout);
 		add(btnLogout);
+		
+		JLabel label = new JLabel("Uge 50");
+		label.setBounds(307, 45, 131, 20);
+		add(label);
+		
+		JButton btnTilbage = new JButton("<< Tilbage");
+		btnTilbage.setBounds(133, 41, 115, 29);
+		add(btnTilbage);
+		
+		JButton btnNste = new JButton("N\u00E6ste >>");
+		btnNste.setBounds(416, 41, 115, 29);
+		add(btnNste);
+		
+		JButton btnMandag = new JButton("Mandag");
+		btnMandag.setBounds(41, 112, 94, 29);
+		add(btnMandag);
+		
+		JButton btnTirsdag = new JButton("Tirsdag");
+		btnTirsdag.setBounds(133, 112, 85, 29);
+		add(btnTirsdag);
+		
+		JButton btnOnsdag = new JButton("Onsdag");
+		btnOnsdag.setBounds(214, 112, 94, 29);
+		add(btnOnsdag);
+		
+		JButton btnTorsdag = new JButton("Torsdag");
+		btnTorsdag.setBounds(303, 112, 108, 29);
+		add(btnTorsdag);
+		
+		JButton btnFredag = new JButton("Fredag");
+		btnFredag.setBounds(404, 112, 101, 29);
+		add(btnFredag);
+		
+		JButton btnLrdag = new JButton("L\u00F8rdag");
+		btnLrdag.setBounds(499, 112, 94, 29);
+		add(btnLrdag);
+		
+		JButton btnSndag = new JButton("S\u00F8ndag");
+		btnSndag.setBounds(582, 112, 94, 29);
+		add(btnSndag);
 
 		
 		  DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

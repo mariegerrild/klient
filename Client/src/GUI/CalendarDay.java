@@ -52,9 +52,7 @@ public class CalendarDay extends JPanel{
 	private JTextField textFieldLocation;
 	private JLabel labelStatus;
 	
-	   Font italicFont = new Font("Helvetica Neue", Font.ITALIC | Font.PLAIN, 14);
-	   Font boldFont = new Font("Helvetica Neue", Font.BOLD | Font.PLAIN, 16);
-	   Font plainFont = new Font("Helvetica Neue", Font.PLAIN | Font.PLAIN, 14);
+	   
 	private JPanel panelDates;
 	private JButton btnVejr;
 	private JButton btnVejr_1;
@@ -71,7 +69,6 @@ public class CalendarDay extends JPanel{
 		labelStatus = new JLabel("");
 		labelStatus.setBounds(375, 323, 192, 16);
 		labelStatus.setForeground(Color.black);
-		labelStatus.setFont(plainFont);
 		add(labelStatus);
 		
 		btnOpret = new JButton("Opret");
@@ -125,7 +122,6 @@ public class CalendarDay extends JPanel{
 		lblAppointments = new JLabel("Dagens begivenheder");
 		lblAppointments.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAppointments.setForeground(Color.black);
-		lblAppointments.setFont(boldFont);
 		lblAppointments.setBounds(-200, 19, 728, 33);
 		add(lblAppointments);
 	
@@ -155,7 +151,7 @@ public class CalendarDay extends JPanel{
 		lblNote_1.setBounds(488, 234, 69, 20);
 		add(lblNote_1);
 		
-		JLabel label = new JLabel("New label");
+		JLabel label = new JLabel("Lokation");
 		label.setBounds(488, 268, 103, 20);
 		add(label);
 		
